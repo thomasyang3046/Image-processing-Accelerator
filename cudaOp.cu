@@ -73,7 +73,7 @@ __global__ void Partial_Convolution_Cuda(uchar* outImg, uchar* inImg, float* inK
     for (int c = 0; c < imgCols; c += blockDim.x)
     {
         int i = blockIdx.x, j = threadIdx.x + c;
-        //¶}©l°µ±²¿n
+       
         float sum = 0;
         for (int curr_row = 0; curr_row < kernelRows; curr_row++)
             for (int curr_col = 0; curr_col < kernelCols; curr_col++)
@@ -179,7 +179,7 @@ Mat Convolution_Cuda(Mat inImg, Mat inKernel)
 {
     Mat outImg = Mat::zeros(inImg.rows, inImg.cols, inImg.type());
 
-    int bios = (inKernel.cols - 1) / 2;//ºâ¥X¤¤¤ßÂI
+    int bios = (inKernel.cols - 1) / 2;//ÂºÃ¢Â¥XÂ¤Â¤Â¤ÃŸÃ‚I
     Mat after_padding_img;
     padding(inImg, after_padding_img, bios);//padding
     //Mat outImg = Mat::zeros(inImg.rows, inImg.cols, inImg.type());
